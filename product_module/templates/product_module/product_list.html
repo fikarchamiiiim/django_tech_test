@@ -1,0 +1,21 @@
+<h1>Produk</h1>
+
+{% if role == 'manager' or role == 'user' %}
+  <a href="{% url 'product-create' %}">+ Tambah Produk</a>
+{% endif %}
+
+<ul>
+  {% for product in products %}
+    <li>
+      {{ product.name }} - {{ product.price }}
+
+      {% if role == 'manager' or role == 'user' %}
+        <a href="{% url 'product-update' product.pk %}">Edit</a>
+      {% endif %}
+
+      {% if role == 'manager' %}
+        <a href="{% url 'product-delete' product.pk %}">Delete</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

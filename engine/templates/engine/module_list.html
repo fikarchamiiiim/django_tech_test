@@ -1,0 +1,17 @@
+<h1>Modules</h1>
+{% for module in modules %}
+  <p>{{ module.name }} - Installed: {{ module.installed }} - Version: {{ module.version }}</p>
+  <!-- Simulasi tombol -->
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="module_name" value="{{ module.name }}">
+    <button type="submit" name="action" value="install">Install</button>
+    <button type="submit" name="action" value="uninstall">Uninstall</button>
+    <button type="submit" name="action" value="upgrade">Upgrade</button>
+
+    {% if module.installed %}
+      <a href="{% url 'product-list' %}">Landing Page</a>
+    {% endif %}
+
+  </form>
+{% endfor %}

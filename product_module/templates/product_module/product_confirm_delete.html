@@ -1,0 +1,6 @@
+<h2>Are you sure to delete this data? "{{ product.name }}"</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Ya</button>
+  <a href="{% url 'product-list' %}">Batal</a>
+</form>

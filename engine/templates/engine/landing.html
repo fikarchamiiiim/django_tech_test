@@ -1,0 +1,12 @@
+<h1>Selamat Datang di Modular App</h1>
+
+{% if user.is_authenticated %}
+  <p>Halo {{ user.username }}!</p>
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+  </form>
+  <a href="{% url 'product-list' %}">Lihat Module</a>
+{% else %}
+  <a href="{% url 'login' %}">Login</a>
+{% endif %}
