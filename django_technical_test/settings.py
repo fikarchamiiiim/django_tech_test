@@ -25,6 +25,11 @@ SECRET_KEY = "django-insecure-=sm0#-)=fdmuz52fz03(ismgwc3yg$(f2=5zd4y#xv(&#o6pjr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://django.chamim.my.id',
+    'https://www.django.chamim.my.id',
+]
+
 ALLOWED_HOSTS = [
     'django.chamim.my.id',
     'web',
