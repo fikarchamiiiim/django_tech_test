@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: fikarchamim97/modular-django:latest
+    build: .
     container_name: django_app
     ports:
       - "8000:8000"
