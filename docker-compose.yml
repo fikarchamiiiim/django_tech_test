@@ -5,6 +5,7 @@ services:
     build: .
     container_name: django_app
     ports:
-      - "8000:8000"
+      - "8000:8000/udp"
+      - "8000:8000/tcp"
     volumes:
       - .:/home/django_app
