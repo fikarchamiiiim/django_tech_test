@@ -25,5 +25,4 @@ urlpatterns = [
     path('', include('engine.urls')),
     path('admin/', admin.site.urls),
     path('product/', include('product_module.urls')),
-    re_path(r'^product(?:/.*)?$', dynamic_router, name='product-list'),
 ]

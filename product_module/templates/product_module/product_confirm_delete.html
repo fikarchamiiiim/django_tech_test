@@ -2,5 +2,5 @@
 <form method="post">
   {% csrf_token %}
   <button type="submit">Ya</button>
-  <a href="{% url 'product-list' %}">Batal</a>
+  <a href="{% url 'product-list' product.module_id %}">Batal</a>
 </form>

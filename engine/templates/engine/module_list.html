@@ -10,7 +10,7 @@
     <button type="submit" name="action" value="upgrade">Upgrade</button>
 
     {% if module.installed %}
-      <a href="{% url 'product-list' %}">Landing Page</a>
+      <a href="{% url 'product-list' module.id %}">Landing Page</a>
     {% endif %}
 
   </form>

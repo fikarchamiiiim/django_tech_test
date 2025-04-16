@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
+
+from product_module.models import Product
 from .models import Module
 
 def dynamic_router(request, path=None):
@@ -35,6 +37,7 @@ def module_list(request):
 
     modules = Module.objects.all()
     return render(request, 'engine/module_list.html', {'modules': modules})
+        
 
 def upgrade_module(module_name):
     if module_name == "product_module":

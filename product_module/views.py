@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 
 from engine.models import Module
 from .models import Product
 from .forms import ProductForm
 from django.contrib.auth.decorators import login_required, permission_required
 
-def product_list(request):
-    
-    module = Module.objects.get(name="product_module")
+def product_list(request, module_id):
+    module = Module.objects.get(id=module_id)
     if not module.installed:
         return redirect('module-list')
 
-    products = Product.objects.all()
+    products = module.product_set.all()
     role = 'public'
 
     if request.user.is_authenticated:
@@ -35,7 +35,7 @@ def product_create(request):
     form = ProductForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('product-list')
+        return redirect('module-list')
     return render(request, 'product_module/product_form.html', {'form': form})
 
 # Update
@@ -46,7 +46,7 @@ def product_update(request, pk):
     form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
-        return redirect('product-list')
+        return redirect(reverse('product-list', kwargs={'module_id': product.module_id}))
     return render(request, 'product_module/product_form.html', {'form': form})
 
 # Delete
@@ -56,5 +56,5 @@ def product_delete(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == 'POST':
         product.delete()
-        return redirect('product-list')
+        return redirect(reverse('product-list', kwargs={'module_id': product.module_id}))
     return render(request, 'product_module/product_confirm_delete.html', {'product': product})

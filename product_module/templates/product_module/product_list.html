@@ -1,59 +1,60 @@
 <head>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
-</head>
-
-<h1>Produk</h1>
-
-{% if role == 'manager' or role == 'user' %}
-  <a href="{% url 'product-create' %}">+ Tambah Produk</a>
-{% endif %}
-
-<ul>
-    <table style="border: 2px solid black;">
-      <tr>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Barcode</td>
-        <td>Stock</td>
-        <td colspan="2">
-          {% if role == 'manager' or role == 'user' %}
-            Action
-          {% endif %}
-        </td>
-      </tr>
-      {% for product in products %}
-      <tr>
-        <td>{{ product.name }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.barcode }}</td>
-        <td>{{ product.stock }}</td>
-        <td>
-          {% if role == 'manager' or role == 'user' %}
-            <a href="{% url 'product-update' product.pk %}">Edit</a>
-          {% endif %}
-        </td>
-        <td>
-          {% if role == 'manager' %}
-            <a href="{% url 'product-delete' product.pk %}">Delete</a>
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
-</ul>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+  </head>
+  
+  <h1>Produk</h1>
+  
+  {% if role == 'manager' or role == 'user' %}
+    <a href="{% url 'product-create' %}">+ Tambah Produk</a>
+  {% endif %}
+  
+  <ul>
+      <table style="border: 2px solid black;">
+        <tr>
+          <td>Name</td>
+          <td>Price</td>
+          <td>Barcode</td>
+          <td>Stock</td>
+          <td colspan="2">
+            {% if role == 'manager' or role == 'user' %}
+              Action
+            {% endif %}
+          </td>
+        </tr>
+        {% for product in products %}
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.barcode }}</td>
+          <td>{{ product.stock }}</td>
+          <td>
+            {% if role == 'manager' or role == 'user' %}
+              <a href="{% url 'product-update' product.pk %}">Edit</a>
+            {% endif %}
+          </td>
+          <td>
+            {% if role == 'manager' %}
+              <a href="{% url 'product-delete' product.pk %}">Delete</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+  </ul>
+  
