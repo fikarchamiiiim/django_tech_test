@@ -6,7 +6,7 @@
     {% csrf_token %}
     <button type="submit">Logout</button>
   </form>
-  <a href="{% url 'product-list' %}">Lihat Module</a>
+  <a href="{% url 'module-list' %}">Lihat Module</a>
 {% else %}
   <a href="{% url 'login' %}">Login</a>
 {% endif %}
