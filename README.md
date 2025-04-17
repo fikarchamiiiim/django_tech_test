@@ -18,6 +18,20 @@
 1. Jalankan server django
     - `python manage.py runserver`
 
+## Buat Module
+
+1. Buka Admin Panel
+    - menuju -> `https://localhost:8000/admin`
+2. Buka Module
+3. Buat Module
+
+## Buat Product
+
+1. Buka Admin Panel
+    - menuju -> `https://localhost:8000/admin`
+2. Buka Product
+3. Buat Product
+
 
 ## Aplikasi Yang Sudah Terdeploy
 [Django Technical Test](https://django.chamim.my.id)
