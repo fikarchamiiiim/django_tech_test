@@ -18,14 +18,14 @@
 1. Jalankan server django
     - `python manage.py runserver`
 
-## Buat Module
+## Buat Module (Harus dengan Super User)
 
 1. Buka Admin Panel
     - menuju -> `https://localhost:8000/admin`
 2. Buka Module
 3. Buat Module
 
-## Buat Product
+## Buat Product (Harus dengan Super User)
 
 1. Buka Admin Panel
     - menuju -> `https://localhost:8000/admin`
@@ -37,6 +37,10 @@
 [Django Technical Test](https://django.chamim.my.id)
 
 ## Daftar Kredensial User
+
+1. Admin (Super User)
+    - username: `admin`
+    - password: `123`
 
 1. Manager
     - username: `as_manager`
